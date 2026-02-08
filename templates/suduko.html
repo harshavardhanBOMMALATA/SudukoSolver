@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku Solver</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+  <link rel="stylesheet" href="{% static 'styles/sudoku.css' %}">
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Sudoku Solver</h1>
+    <p>Solve any Sudoku puzzle instantly!</p>
+  </div>
+
+  <div class="main">
+
+    <!-- INPUT -->
+    <div class="card sudoku-card">
+      <div class="sudoku-inner">
+
+        <div class="grid input-grid" id="inputGrid"></div>
+
+        <div class="buttons">
+          <button class="solve" id="solveBtn">Solve</button>
+          <button class="reset" id="resetBtn">Reset</button>
+          <button class="generate" id="generateBtn">Generate</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="card result-card">
+
+      <div class="result-title">Solved Sudoku</div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <h3 id="steps">–</h3>
+          <p>Steps</p>
+        </div>
+
+        <div class="stat-box">
+          <h3 id="time">–</h3>
+          <p>Time</p>
+        </div>
+      </div>
+
+      <div class="grid solution-grid" id="solutionGrid"></div>
+
+      <div style="display:flex; justify-content:center;">
+        <button
+          id="visualizeBtn"
+          onclick="startVisualizationSolve()"
+          style="
+            margin-top:16px;
+            padding:14px 18px;
+            font-size:16px;
+            font-weight:600;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            background:#3b82f6;
+            color:white;
+            transition:background 0.2s ease, transform 0.2s ease;
+          "
+          onmouseover="
+            this.style.background='#2563eb';
+            this.style.transform='translateY(-2px)';
+          "
+          onmouseout="
+            this.style.background='#3b82f6';
+            this.style.transform='translateY(0)';
+          "
+        >
+          Visualize Solve
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+
+    <div
+      style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin-bottom:6px;
+      "
+    >
+
+      <a
+        href="https://www.linkedin.com/in/harshavardhan-bommalata-7bb9442b0"
+        target="_blank"
+        title="LinkedIn"
+        style="
+          margin:0 22px;
+          color:#e5e7eb;
+          font-size:26px;
+          display:inline-block;
+          transition:all 0.3s ease;
+        "
+        onmouseover="
+          this.style.transform='translateY(-6px) scale(1.25)';
+          this.style.color='#0a66c2';
+        "
+        onmouseout="
+          this.style.transform='translateY(0) scale(1)';
+          this.style.color='#e5e7eb';
+        "
+      >
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <a
+        href="https://github.com/harshavardhanBOMMALATA"
+        target="_blank"
+        title="GitHub"
+        style="
+          margin:0 22px;
+          color:#e5e7eb;
+          font-size:26px;
+          display:inline-block;
+          transition:all 0.3s ease;
+        "
+        onmouseover="
+          this.style.transform='translateY(-6px) scale(1.25)';
+          this.style.color='#ffffff';
+        "
+        onmouseout="
+          this.style.transform='translateY(0) scale(1)';
+          this.style.color='#e5e7eb';
+        "
+      >
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a
+        href="https://www.instagram.com/always_harsha_royal/?hl=en"
+        target="_blank"
+        title="Instagram"
+        style="
+          margin:0 22px;
+          color:#e5e7eb;
+          font-size:26px;
+          display:inline-block;
+          transition:all 0.3s ease;
+        "
+        onmouseover="
+          this.style.transform='translateY(-6px) scale(1.25)';
+          this.style.color='#e1306c';
+        "
+        onmouseout="
+          this.style.transform='translateY(0) scale(1)';
+          this.style.color='#e5e7eb';
+        "
+      >
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a
+        href="mailto:hbommalata@gmail.com"
+        title="Email"
+        style="
+          margin:0 22px;
+          color:#e5e7eb;
+          font-size:26px;
+          display:inline-block;
+          transition:all 0.3s ease;
+        "
+        onmouseover="
+          this.style.transform='translateY(-6px) scale(1.25)';
+          this.style.color='#38bdf8';
+        "
+        onmouseout="
+          this.style.transform='translateY(0) scale(1)';
+          this.style.color='#e5e7eb';
+        "
+      >
+        <i class="fas fa-envelope"></i>
+      </a>
+
+    </div>
+
+    <p>© 2026 Sudoku Solver</p>
+
+  </div>
+
+  <script src="{% static 'scripts/sudoku.js' %}"></script>
+
+</body>
+</html>
